@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APNA-PG Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* General Page Styling */
+        body.login-body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Img/register_bg.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+
+        /* Header */
+        header .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        header .box a.rentor {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f8f32b;
+            text-decoration: none;
+        }
+
+        header .navi a.nav {
+            margin: 0 15px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+        }
+
+        header .navi a.nav:hover {
+            color: #f8f32b;
+        }
+
+        header .box a.login {
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #f8f32b;
+            border-radius: 5px;
+        }
+
+        header .box a.login:hover {
+            background-color: #004cff;
+        }
+
+        /* Registration Section */
+        .log {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #004cff;
+            margin-bottom: 20px;
+        }
+
+        /* Input Container */
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            width: 85%;
+            padding: 15px;
+            padding-left: 30px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: #999;
+        }
+
+        /* Button Styles */
+        button.login-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #f8f32b;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.login-submit:hover {
+            background-color: #004cff;
+        }
+
+        button.google {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #db4437; /* Google Red */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button.google:hover {
+            background-color: #c13533; /* Darker Google Red */
+        }
+
+        button.google i {
+            margin-right: 8px;
+        }
+
+        /* OR Text */
+        h2 {
+            margin: 20px 0;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body class="login-body">
+    
+    <header>
+        <div class="box">
+            <a href="index.html" class="rentor">APNA-PG</a>
+            <div class="navi">
+                <a href="index.html" class="nav">Home</a>
+                <a href="services.html" class="nav">Services</a>
+                <a href="about.html" class="nav">About</a>
+                <a href="index.html#contact" class="nav">Contact</a>
+            </div>
+            <a href="login.html" class="login">Login</a>
+        </div>
+    </header>
+
+    <section class="log">
+        <div class="content">
+            <h1>Register</h1>
+            <br><br>
+            <form id="registerform">
+                <div class="input-container">
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <br>
+                <div class="input-container">
+                    <input type="password" name="password" id="new_password" placeholder="New Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <br>
+                <div class="input-container">
+                    <input type="password" name="password_confirm" id="confirm_password" placeholder="Confirm Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <br>
+                <button type="submit" class="login-submit">Join Now</button>
+                <br>
+                <h2 style="text-align: center;">OR</h2>
+                <button class="google">
+                    <i class="fab fa-google"></i><span>Google</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("registerform");
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                
+                const username = document.getElementById("username").value;
+                const new_password = document.getElementById("new_password").value;
+                const confirm_password = document.getElementById("confirm_password").value;
+
+                // Check if passwords match before sending to server
+                if (new_password !== confirm_password) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+
+                // POST request to the server
+                fetch("/registerform", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ username, password: new_password }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Sign Up Successfully");
+                        form.reset();  // Clear the form
+                        window.location.href = "/login";
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    </script>
+</body>
+</html>

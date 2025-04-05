@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APNA-PG Website</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background-color: #2b2d42;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .bg1 {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .rentor {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f8f32b;
+        }
+
+        .navi {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .nav {
+            color: white;
+            font-size: 1rem;
+        }
+
+        .login {
+            color: #f8f32b;
+        }
+
+        .intro {
+            margin: 30px 0;
+        }
+
+        .intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .intro h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .box2 {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .place {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search {
+            padding: 10px 20px;
+            background-color: #f8f32b;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Featured Listings */
+        .featured {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .featured h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .featured-listings {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .listing {
+            background-color: #e5e5e5;
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .listing img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .listing h3 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .listing p {
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #2b2d42;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-bg {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .testimonial {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: left;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .step {
+            background-color: #e5e5e5;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .faq-item {
+            cursor: pointer;
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .faq-item.active .Ans {
+            display: block;
+        }
+
+        .Ans {
+            display: none;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px; /* Adjust this value to your desired width */
+            margin: 0 auto; /* Center the form */
+            padding: 20px;
+            background-color: #2b2d42;
+            color: #f8f32b;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label{
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%; /* Ensure the input fields fill the form's width */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+
+        /* CTA */
+        .cta {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #f8f32b;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #2b2d42;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2d42;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body class="main-body">
+    <header>
+        <div class="bg1">
+            <div class="box">
+                <a href="index.html" class="rentor">APNA-PG</a>
+                <div class="navi">
+                    <a href="index.html" class="nav">Home</a>
+                    <a href="services.html" class="nav">Services</a>
+                    <a href="about.html" class="nav">About</a>
+                    <a href="#contact" class="nav">Contact</a>
+                    <a href="login.html" class="login">Login</a>
+                </div>
+            </div>
+            <div class="intro">
+                <h1>Your Gateway to Finding the Perfect PGs</h1>
+                <h2>Connecting renters and property owners effortlessly, APNA-PG makes the process of finding and listing PGs properties smooth and efficient.</h2>
+                <div class="box2">
+                    <input type="text" class="place" id="state" placeholder="State">
+                    <input type="text" class="place" id="city" placeholder="City">
+                    <input type="number" class="place" id="pincode" placeholder="Pincode">
+                    <button onclick="handleSearch()" class="search">Search</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="featured">
+            <h2>Featured Listings</h2>
+            <div class="featured-listings">
+                <div class="listing">
+                    <img src="./Img/building1.avif" alt="">
+                    <h3>Cozy Apartment in Downtown</h3>
+                    <p>2 beds, 1 bath, $1,200/month</p>
+                </div>
+                <div class="listing">
+                    <img src="./Img/images (1).jpeg" alt="">
+                    <h3>Modern Studio Near University</h3>
+                    <p>1 bed, 1 bath, $850/month</p>
+                </div>
+                <div class="listing">
+                    <img src="./Img/pexels-sebastians-731082.jpg" alt="">
+                    <h3>Spacious Family Home</h3>
+                    <p>3 beds, 2 baths, $2,500/month</p>
+                </div>
+                <div class="listing">
+                    <img src="./Img/images.jpeg" alt="">
+                    <h3>Swastik PG</h3>
+                    <p>2 beds, 2 baths, $1,500/month</p>
+                </div>
+                <div class="listing">
+                    <img src="./Img/DSC00003.webp" alt="">
+                    <h3>Sham House </h3>
+                    <p>2 bedroom, 2 bathroom, $2,000/month</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>WHAT OUR USERS SAY</h2>
+            <div class="testimonial-bg">
+            <div class="testimonial">
+                <p>"Rentor made finding my new apartment a breeze. The process was straightforward and efficient!"</p>
+                <cite>- Sarah J.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"A fantastic platform with excellent customer support. Highly recommend Rentor to anyone looking for a rental."</p>
+                <cite>- Mark T.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"A fantastic platform with excellent customer support. Highly recommend Rentor to anyone looking for a rental."</p>
+                <cite>- Mark T.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"A fantastic platform with excellent customer support. Highly recommend Rentor to anyone looking for a rental."</p>
+                <cite>- Mark T.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"A fantastic platform with excellent customer support. Highly recommend Rentor to anyone looking for a rental."</p>
+                <cite>- Mark T.</cite>
+            </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>1. Search</h3>
+                    <p>Enter your location and criteria to find available rental properties.</p>
+                </div>
+                <div class="step">
+                    <h3>2. View Listings</h3>
+                    <p>Browse through the listings and find the one that fits your needs.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Contact</h3>
+                    <p>Get in touch with property owners or agents to schedule a viewing or get more information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item" onclick="toggleAnswer(this)">
+                <div class="Que">
+                    Que. How do I post a rental property?
+                </div>
+                <div class="Ans">
+                    Ans. Simply go to the Services page and fill out the form to list your property.
+                </div>
+            </div>
+            <div class="faq-item" onclick="toggleAnswer(this)">
+                <div class="Que">
+                    Que. Can I filter search results?
+                </div>
+                <div class="Ans">
+                    Ans. Yes, you can filter results based on location, price, and property type.
+                </div>
+            </div>
+            <div class="faq-item" onclick="toggleAnswer(this)">
+                <div class="Que">
+                    Que. What should I do if I encounter any issues?
+                </div>
+                <div class="Ans">
+                    Ans. If you face any problems, you can contact our support team through the Contact page.
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form" id="contact">
+            <h2>Contact Us</h2>
+            <form action="/contact" id="contactForm" class="contactForm" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" class="message" name="message" required></textarea><br><br>
+                <button type="submit">Send Message</button>
+            </form>            
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Find Your New Home?</h2>
+            <img src="./Img/pngtree-are-you-ready-banner-abstract-vector-design-images-png-image_6516714.png" alt=""><br>
+            <a href="services.html" class="cta-button">Get Started</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 APNA PG. All rights reserved.</p>
+    </footer>
+    <script>
+        function handleSearch() {
+            const state = document.getElementById('state').value;
+            const city = document.getElementById('city').value;
+            const pincode = document.getElementById('pincode').value;
+
+            const queryParams = new URLSearchParams({ state, city, pincode }).toString();
+            window.location.href = `services.html?${queryParams}`;
+        }
+
+        function toggleAnswer(faqItem) {
+            faqItem.classList.toggle('active');
+        }
+
+        // ContactForm Listener
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contactForm');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                // Make a POST request to your server for form submission
+                fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, message }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        alert('Message Submitted Successfully!');
+                        form.reset(); // Reset the form after successful submission
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch((error) => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>

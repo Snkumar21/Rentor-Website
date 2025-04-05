@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - APNA-PG</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* General Page Styling */
+        body.main-body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
+
+        /* Header */
+        header .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        header .box a.rentor {
+            font-size: 32px;
+            font-weight: bold;
+            color: #f8f32b;
+            text-decoration: none;
+        }
+
+        header .navi a.nav {
+            margin: 0 15px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+        }
+
+        header .navi a.nav:hover {
+            color: #f8f32b;
+        }
+
+        header .box a.login {
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #f8f32b;
+            border-radius: 5px;
+        }
+
+        header .box a.login:hover {
+            background-color: #004cff;
+        }
+
+        /* Background Section */
+        .bg2 {
+            background: linear-gradient(120deg,#bb00ff,#ff0000);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Search Section */
+        #search {
+            margin: 40px auto;
+            width: 80%;
+            max-width: 700px;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        #search input[type="text"] {
+            width: 95%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #search button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #004cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search button:hover {
+            background-color: #3470fc;
+        }
+
+        .searchResults {
+            margin-top: 20px;
+            color: #000000;
+        }
+
+        /* Post Section */
+        #post {
+            margin: 40px auto;
+            width: 80%;
+            max-width: 700px;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            color: #000000;
+        }
+
+        #postForm label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        #postForm input[type="text"],
+        #postForm textarea {
+            width: 95%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #postForm textarea.description {
+            height: 120px;
+        }
+
+        #postForm button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #004cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #postForm button:hover {
+            background-color: #3470fc;
+        }
+
+        /* Post Messages */
+        .postMessage {
+            margin-top: 30px;
+        }
+
+        .post-item {
+            background-color: #e4e4e4;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-item h3 {
+            color: #004cff;
+            margin-bottom: 10px;
+        }
+
+        .post-item p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .post-item button {
+            background-color: #004cff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .post-item button:hover {
+            background-color: #3470fc;
+        }
+
+    </style>
+
+</head>
+<body class="main-body">
+    <header>
+        <div class="box">
+            <a href="index.html" class="rentor">APNA-PG</a>
+            <div class="navi">
+                <a href="index.html" class="nav">Home</a>
+                <a href="services.html" class="nav">Services</a>
+                <a href="about.html" class="nav">About</a>
+                <a href="index.html#contact" class="nav">Contact</a>
+            </div>
+            <a href="login.html" class="login">Login</a>
+        </div>
+    </header>
+    <main>
+        <div class="bg2">
+            <!-- Section for Searching Properties -->
+            <section id="search">
+                <h2>Search for PGs Properties</h2>
+                <input type="text" id="searchInput" placeholder="Enter location or property type">
+                <button onclick="searchProperties()">Search</button>
+                <div id="searchResults" class="searchResults"></div>
+            </section>
+
+            <!-- Section for Posting a Rental Property -->
+            <section id="post">
+                <h2>Post a PGs Property</h2>
+                <form id="postForm" class="postForm">
+                    <label for="propertyType">Property Type:</label><br>
+                    <input type="text" id="propertyType" name="propertyType" required><br><br>
+                    <label for="location">Location:</label><br>
+                    <input type="text" id="location" name="location" required><br><br>
+                    <label for="priceRange">Price Range:</label><br>
+                    <input type="text" id="priceRange" name="priceRange" required><br><br>
+                    <label for="description">Description:</label><br>
+                    <textarea id="description" class="description" name="description" required></textarea><br><br>
+                    <button type="submit">Post</button>
+                </form>
+                <div id="postMessages" class="postMessage">
+                    <div class="postMessage">
+                        <p>This is the first post message.</p>
+                    </div>
+                    <div class="postMessage">
+                        <p>This is the second post message.</p>
+                    </div>
+                    <div class="postMessage">
+                        <p>This is the third post message.</p>
+                    </div>                    
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("postForm");
+
+            // Handle form submission
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const propertyType = document.getElementById("propertyType").value;
+                const location = document.getElementById("location").value;
+                const priceRange = document.getElementById("priceRange").value;
+                const description = document.getElementById("description").value;
+
+                // Post data to the server
+                fetch("/postProperty", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ propertyType, location, priceRange, description })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Property posted successfully");
+                        form.reset();
+                        // Reload the posts to show the new entry immediately
+                        loadPosts();
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+
+            // Load existing posts on page load
+            loadPosts();
+        });
+
+        // Function to load posts from the server and display them
+        function loadPosts() {
+            fetch("/getPropertyPosts")
+            .then(response => response.json())
+            .then(posts => {
+                const postMessages = document.getElementById("postMessages");
+                postMessages.innerHTML = ''; // Clear existing posts
+
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post-item');
+                    postElement.innerHTML = `
+                        <h3>${post.propertyType} - ${post.location}</h3>
+                        <p>Price Range: ${post.priceRange}</p>
+                        <p>${post.description}</p>
+                        <button onclick="viewDetails(${post.id})">View More Details</button>
+                    `;
+                    postMessages.appendChild(postElement);
+                });
+            })
+            .catch(error => console.error("Error loading posts:", error));
+        }
+
+        // Function to view details of a specific post
+        function viewDetails(id) {
+            // Implement view details logic here, could be a redirect or modal display
+            alert("View details for post ID: " + id);
+        }
+
+        // Dummy search function for demonstration
+        function searchProperties() {
+            const searchInput = document.getElementById('searchInput').value;
+            const searchResults = document.getElementById('searchResults');
+
+            // Make a GET request to the server to search properties
+            fetch(`/searchProperties?q=${searchInput}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    searchResults.innerHTML = ''; // Clear previous results
+
+                    if (data.properties.length > 0) {
+                        data.properties.forEach(property => {
+                            const propertyElement = document.createElement('div');
+                            propertyElement.classList.add('property-item');
+                            propertyElement.innerHTML = `
+                                <h3>${property.propertyType} - ${property.location}</h3>
+                                <p>Price Range: ${property.priceRange}</p>
+                                <p>Description: ${property.description}</p>
+                            `;
+                            searchResults.appendChild(propertyElement);
+                        });
+                    } else {
+                        searchResults.innerHTML = `<p>No properties found for "${searchInput}".</p>`;
+                    }
+                } else {
+                    searchResults.innerHTML = `<p>Error: ${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                searchResults.innerHTML = `<p>Error fetching properties.</p>`;
+            });
+        }
+
+    </script>
+</body>
+</html>
